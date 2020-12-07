@@ -1,0 +1,34 @@
+<div *ngIf="ciudad">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center my-5">
+                <h1>Ciudad de {{ ciudad.name }}, {{ ciudad.sys.country}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-dark text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Tu ubicacion es:</h5>
+                    <p class="card-text">Latitud: {{ciudad.coord.lat}}</p>
+                    <p class="card-text">lognitud: {{ciudad.coord.lon}}</p>
+                    <h5 class="card-title">Mas informacion de tu ubicacion:</h5>
+                    <p class="card-text">Descripcion: {{ ciudad.weather[0].description }} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-md-0 mt-3">
+            <div class="card bg-dark text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Clima de tu ubicacion es: </h5>
+                    <p class="card-text">Temperatura: {{ciudad.main.temp}}°</p>
+                    <p class="card-text">Temperatura maxima: {{ciudad.main.temp_max}}°</p>
+                    <p class="card-text">Temperatura minima: {{ciudad.main.temp_min}}°</p>
+                    <p class="card-text">Presion: {{ciudad.main.pressure}}</p>
+                    <p class="card-text">Humedad: {{ciudad.main.humidity}}%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-12 my-4 text-center" *ngIf="ciudad">
+        <h1>Datos de la ciudad de {{ ciudad.city.name }}, {{ ciudad.city.country }}</h1>
+    </div>
+    <div class="col-12 mt-3">
+        <div class="card bg-dark text-center">
+            <div class="card-body">
+                <h5 class="card-title">Buscador de ciudad:</h5>
+                <div class="input-group mb-3">
+                    <select class="custom-select" #ciudadElegida (change)="elegirCiudad(ciudadElegida.value)">
+                      <option selected *ngIf="ciudad">{{ ciudad.city.name }}</option>
+                      <option value="Cordoba">Cordoba</option>
+                      <option value="Buenos Aires">Buenos Aires</option>
+                      <option value="Parana">Parana</option>
+                      <option value="Misiones">Misiones</option>
+                      <option value="Salta">Salta</option>
+                      <option value="Formosa">Formosa</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="ciudad" class="col-12 mt-3">
+        <div class="card bg-dark text-center">
+            <div class="card-body">
+                <h5 class="card-title">Ciudad de {{ ciudad.city.name }}, {{ ciudad.city.country}}</h5>
+                <div class="d-flex flex-nowrap overflow-auto">
+                    <div *ngFor="let ext of extendido">
+                        <div class="card bg-secondary m-2 p-3">
+                            <p class="card-text">Temperatura: {{ext.dt_txt | date:'medium'}}</p>
+                            <p class="card-text">Temperatura: {{ext.main.temp}}°</p>
+                            <p class="card-text">Temperatura maxima: {{ext.main.temp_max}}°</p>
+                            <p class="card-text">Temperatura minima: {{ext.main.temp_min}}°</p>
+                            <p class="card-text">Presion: {{ext.main.pressure}}</p>
+                            <p class="card-text">Humedad: {{ext.main.humidity}}%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
